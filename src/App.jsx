@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Counter from './components/Counter';
 import Input from './components/Input';
 import Label from './components/Label';
+import Todo from './components/Todo';
 
 function App() {
   const [form, setForm] = useState({
@@ -33,9 +34,13 @@ function App() {
 
   return (
     <PlaceContentCenter>
+      {/* Program Operasi Hitung */}
+      {/* <div className="mt-5"></div>
       {/* <Counter nilaiAwal={5} minDef={3} plusDef={2} />
       <Counter nilaiAwal={2} minDef={3} /> */}
 
+      {/* Program Formulir */}
+      {/* <div className="mt-5"></div>
       <Card>
         <form action="" onSubmit={submit}>
         <Card.Title>Sign up for new Account!</Card.Title>
@@ -60,7 +65,14 @@ function App() {
           </Button>
         </Card.Footer>
         </form>
-      </Card>
+      </Card> */}
+
+      {/* Program Todo */}
+      <div className="my-5"></div>
+      <Todo></Todo>
+
+
+
     </PlaceContentCenter>
   );
 }
