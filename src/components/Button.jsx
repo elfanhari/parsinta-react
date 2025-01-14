@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 export default function Button(props) {
   const { type = 'button', className = 'bg-blue-600', children, text } = props;
