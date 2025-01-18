@@ -8,7 +8,7 @@ export default function Button(props) {
       {...props}
       className={clsx(
         className,
-        '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 inline-flex justify-center whitespace-nowrap items-center gap-x-2 text-white px-4 h-10 py-2 rounded-lg',
+        '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 inline-flex justify-center whitespace-nowrap items-center gap-x-2 text-white px-4 h-10 py-2 rounded-lg mt-3',
       )}>
       {text || children}
     </button>
