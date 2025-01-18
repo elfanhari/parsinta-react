@@ -3,47 +3,60 @@ import Button from './components/Button';
 import Card from './components/Card';
 import PlaceContentCenter from './components/PlaceContentCenter';
 import Input from './components/Input';
+import axios from 'axios';
+import { data } from 'autoprefixer';
+import { use } from 'react';
 
-function App() {
-  const [name, setName] = useState('')
-  const [online, setOnline] = useState(false)
-  const [scrollPosition, setScrollPosition] = useState(window.scroll)
-
-  // selalu di render jika ada suatu perubahan dimanapun
-  useEffect(() => {
-    // console.log('saya selalu di render');
-  })
-
-  // Di render sekali saat pertama saja
-  useEffect(() => {
-    console.log('Aku terender di awal saja!');
-  }, [])
-
-  // Di render saat variable terkait ada perubahan/ c. Online
-  useEffect(() => {
-    // console.log(`I am now ${online ? 'online' : 'offline'}`);
-  }, [online])
-
-  function updateScrollPosition(){
-    const windowScrolling = window.scrollY;
-    console.log(`Window scroll position ${windowScrolling}`);
-    setScrollPosition(windowScrolling)
-  }
+function App(props) {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log('Attaching')
-    window.addEventListener('scroll', updateScrollPosition)
-    return () => {
-      console.log('Detaching')
-      window.removeEventListener('scroll', updateScrollPosition)
+    // Cara1
+    // async function getUsers() {
+    //   const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    //   const data = await response.json()
+    //   console.log(data);
+    //   setUsers(data);
+    // }
+    // getUsers()
+
+    // Cara 2
+    async function getUsers() {
+      setLoading(true);
+      try {
+        // const { data } = await axios('https://jsonpaceholder.typicode.com/users'); // coba url salah
+        const { data } = await axios('https://jsonplaceholder.typicode.com/users'); // coba url bener
+        setUsers(data);
+      } catch (error) {
+        alert(error.message);
+      }
+      setLoading(false);
     }
-  },)
+    getUsers().then((r) => r);
+  }, []);
 
   return (
-    <div className={'h-[4000px]'}>
-      <Input value={name} onChange={(e) => setName(e.target.value)}/>
-      <Button onClick={(e) => setOnline(!online)}>Set {online ? 'offline' : 'online'}</Button>
-    </div>
+    <PlaceContentCenter>
+      <Card>
+        <Card.Title>Users: {users.length}</Card.Title>
+        <Card.Body>
+          {loading ? (
+            'Loading...'
+          ) : users.length ? (
+            <ol>
+              {users.map((user) => (
+                <li key={user.id}>
+                  {user.name} | ({user.username})
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <div className=''>Data tidak ada</div>
+          )}
+        </Card.Body>
+      </Card>
+    </PlaceContentCenter>
   );
 }
 

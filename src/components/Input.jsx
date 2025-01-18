@@ -1,11 +1,11 @@
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef } from 'react';
 
-const Input = ({isFocused = false, type = 'text', ...props}) => {
-  const input = useRef()
+const Input = ({ isFocused = false, type = 'text', ...props }) => {
+  const input = useRef();
 
   useEffect(() => {
     if (isFocused) {
-      input.current.focus()
+      input.current.focus();
     }
   }, []);
 
@@ -21,5 +21,4 @@ const Input = ({isFocused = false, type = 'text', ...props}) => {
   );
 };
 
-
-export default Input
+export default Input;
