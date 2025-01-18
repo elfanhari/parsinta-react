@@ -1,24 +1,14 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 
-const Input = ({ isFocused = false, type = 'text', ...props }) => {
-  const input = useRef();
-
-  useEffect(() => {
-    if (isFocused) {
-      input.current.focus();
+const Input = forwardRef(({ type = 'text', ...props }, ref) => (
+  <input
+    ref={ref}
+    {...props}
+    type={type}
+    className={
+      'text-black transition duration-300 w-full focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-200 border-slate-300 shadow-sm rounded-lg'
     }
-  }, []);
-
-  return (
-    <input
-      ref={input}
-      {...props}
-      type={type}
-      className={
-        'text-black transition duration-300 w-full focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-200 border-slate-300 shadow-sm rounded-lg'
-      }
-    />
-  );
-};
+  />
+));
 
 export default Input;
