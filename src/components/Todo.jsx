@@ -61,7 +61,7 @@ export default function Todo(){
   return (
     <Card>
       <Card.Title>
-        Todo
+        Todo List.
       </Card.Title>
       <Card.Body>
         <form method="POST" onSubmit={handleAddOrUpdateTask}>

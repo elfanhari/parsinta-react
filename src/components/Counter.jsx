@@ -23,7 +23,7 @@ export default function Counter(props) {
   }
 
   return (
-    <div className='mt-5 flex items-center gap-2'>
+    <div className=' flex items-center gap-2'>
       <Button
         onClick={() => {
           // kurang(minDef)

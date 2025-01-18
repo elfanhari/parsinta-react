@@ -35,12 +35,19 @@ function App() {
   return (
     <PlaceContentCenter>
       {/* Program Operasi Hitung */}
-      {/* <div className="mt-5"></div>
-      {/* <Counter nilaiAwal={5} minDef={3} plusDef={2} />
-      <Counter nilaiAwal={2} minDef={3} /> */}
+      <div className="mt-5"></div>
+      <Card>
+        <Card.Title>
+          Counter.
+        </Card.Title>
+        <Card.Body>
+          <Counter nilaiAwal={5} minDef={3} plusDef={2} />
+          <Counter nilaiAwal={2} minDef={3} />
+        </Card.Body>
+      </Card>
 
       {/* Program Formulir */}
-      {/* <div className="mt-5"></div>
+      <div className="mt-5"></div>
       <Card>
         <form action="" onSubmit={submit}>
         <Card.Title>Sign up for new Account!</Card.Title>
@@ -65,13 +72,11 @@ function App() {
           </Button>
         </Card.Footer>
         </form>
-      </Card> */}
+      </Card>
 
       {/* Program Todo */}
       <div className="my-5"></div>
       <Todo></Todo>
-
-
 
     </PlaceContentCenter>
   );
