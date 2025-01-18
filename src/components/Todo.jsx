@@ -59,7 +59,7 @@ export default function Todo(){
   }
 
   return (
-    <Card>
+    <Card className="mb-5">
       <Card.Title>
         Todo List.
       </Card.Title>
